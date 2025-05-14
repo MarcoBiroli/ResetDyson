@@ -2,7 +2,6 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2503.14733-B31B1B.svg)](https://arxiv.org/abs/2503.14733)
 ![Made with Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue)
-![Mathematica 13+](https://img.shields.io/badge/Mathematica-13%2B-orange)
 
 **ResetDyson** collects the analytical calculations, symbolic notebooks and Monte-Carlo/ODE code that accompany the paper  
 > **M. Biroli, S. N. Majumdar & G. Schehr, “Resetting Dyson Brownian Motion” (2025)** 
