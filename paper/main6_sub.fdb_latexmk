@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main6_sub"] 1747194273 "main6_sub.aux" "main6_sub.bbl" "main6_sub" 1747222526
+["bibtex main6_sub"] 1747237414 "main6_sub.aux" "main6_sub.bbl" "main6_sub" 1747237416
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/revtex4-1/apsrev4-1.bst" 1602107945 71515 e333383ed72bf24aa6de7e8cabb55f84 ""
-  "main6_sub.aux" 1747222526 18593 608b63fa1add7d17c1cdc476f331886a "pdflatex"
-  "main6_subNotes.bib" 1747222526 103 48ad29797468f16e2853d8797278d7af "pdflatex"
+  "main6_sub.aux" 1747237415 18581 5859884458b1605ea01d271ef6b5ae59 "pdflatex"
+  "main6_subNotes.bib" 1747237415 103 48ad29797468f16e2853d8797278d7af "pdflatex"
   (generated)
   "main6_sub.bbl"
   "main6_sub.blg"
-["pdflatex"] 1747222525 "/Users/mbiroli/Documents/_Completed/ResetDyson/paper/main6_sub.tex" "main6_sub.pdf" "main6_sub" 1747222526
-  "/Users/mbiroli/Documents/_Completed/ResetDyson/paper/main6_sub.tex" 1747222525 129858 1bac5f646741c9102b689b7005a9f3b9 ""
+["pdflatex"] 1747237414 "/Users/mbiroli/Documents/_Completed/ResetDyson/paper/main6_sub.tex" "main6_sub.pdf" "main6_sub" 1747237416
+  "/Users/mbiroli/Documents/_Completed/ResetDyson/paper/main6_sub.tex" 1747237413 130649 6b840d45c2d65683aeb13542c2436816 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -237,9 +237,9 @@
   "gaps1.pdf" 1742330042 17755 5a3ab0529fbeacc5bf24e2ac32b4b4de ""
   "gaps4.pdf" 1742330027 23318 48efe8e61f3d207da82b85747289a1bb ""
   "gapssmallz.pdf" 1742330341 16256 80606a351640bcdc30806b08ceff56ed ""
-  "main6_sub.aux" 1747222526 18593 608b63fa1add7d17c1cdc476f331886a "pdflatex"
-  "main6_sub.bbl" 1747194273 1983 c789b8b2e2ff60989c671635ad8473c2 "bibtex main6_sub"
-  "main6_sub.tex" 1747222525 129858 1bac5f646741c9102b689b7005a9f3b9 ""
+  "main6_sub.aux" 1747237415 18581 5859884458b1605ea01d271ef6b5ae59 "pdflatex"
+  "main6_sub.bbl" 1747237414 1983 c789b8b2e2ff60989c671635ad8473c2 "bibtex main6_sub"
+  "main6_sub.tex" 1747237413 130649 6b840d45c2d65683aeb13542c2436816 ""
   "max.pdf" 1742329985 32860 4d6acb6dbf7f7483739b374d777f267f ""
   "max0.pdf" 1742329998 15679 1d9ca214e2bdf32d0f2f41caf0ab26b7 ""
   "reset_gas.pdf" 1742329919 74861 8cf44dc437b12b4eabe9bbb3495d3d27 ""

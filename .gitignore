@@ -3,8 +3,11 @@
 *.aux
 *.log
 
-# Datafiles (too heavy)
-*.out
+# Datafiles (heavy)
+#*.out
+
+# Referee communication
+*referee*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

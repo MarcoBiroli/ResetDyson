@@ -151,7 +151,11 @@ that all share a common structure of the joint distribution of particle position
 %which have been discovered in new processes \cite{SM24, KMS24} and also describe several previously studied models \cite{BC03, BCS05, AAV09, CS14, CSMS17}.\\
 
 
-This brings us to the main topic of this paper, namely what happens if the $\beta$-DBM process is subject to simultaneous Poissonian resetting with rate $r$. In other words, we consider a system of $N$ interacting particles that evolve via the $\beta$-DBM dynamics up to a random time $\tau$ distributed via $p(\tau) = r\,e^{-r \tau}$ and then the particles are simultaneously reset to their initial positions and the process restarts. We call this resetting process the $\beta$-RDBM and  
+This brings us to the main topic of this paper, namely what happens if the $\beta$-DBM process is subject to simultaneous Poissonian resetting with rate $r$. In other words, we consider a system of $N$ interacting particles that evolve via the $\beta$-DBM dynamics up to a random time $\tau$ distributed via $p(\tau) = r\,e^{-r \tau}$ and then the particles are simultaneously reset to their initial positions and the process restarts. 
+{\color{blue} 
+This simulatenous resetting fundamentally changes the stochastic process leading to an entirely new phenomenology. Most strikingly this new process will not reach an equilibrium state, instead it will go to a NESS.
+}
+We call this resetting process the $\beta$-RDBM and  
 our goal is to investigate the joint distribution ${\rm Prob.}[x_1, \cdots, x_N | r]$ of the positions of the particles in the stationary state of the $\beta$-RDBM process in the long time limit $t \to \infty$. We recall that, in the absence of resetting $r=0$, the particles {\it repel} each other via pairwise logarithmic interactions, as in Eq. (\ref{eq:intro-log-jpdf}). On the other hand, when simultaneous resetting with rate $r>0$ is switched on, it induces an all-to-all {\it attraction} between the particles. For the special values $\beta = 1,2,4$, we can interpret the $\beta$-RDBM process as the stochastic evolution of the eigenvalues of a $N \times N$ Gaussian random matrix, whose entries perform independent Ornstein-Uhlenbeck processes with stochastic resetting. In this $\beta$-RDBM model, there is a competition between the pairwise repulsion and the all-to-all attraction and it is interesting to study how the behavior of different observables in the stationary state get affected by this competing {\bf repulsive and effectively attractive} interactions. Motivated by the studies of eigenvalues in RMT, we will study in this paper the following observables: 
 \begin{itemize}
 \item The average particle density in the NESS
@@ -178,6 +182,10 @@ in the NESS, as marked schematically in Fig. \ref{fig:sketch}. Once again, for $
 \end{itemize}
 
 We will further show an interesting by-product of our results. Our analytical results are valid for an arbitrary stiffness $\mu$ of the confining harmonic potential of the log-gas. For the special case $\beta = 2$, by setting $\mu = 0$ (i.e., un-trapping the gas), we will show that our results can be used to describe $N$ non-intersecting Brownian motions on a line \cite{M1984,SMCR08,Bor09,RS11,GMS21}, but with the new twist of having simultaneous resetting close to the origin with rate $r$. 
+
+{\color{blue}
+This $\beta$-RDBM is a rare example of a system with competing strong long-range attractive and repulsive correlations which can nonetheless be described in such analytical detail. As such, we believe it could be used to describe or approximate a wide range of physical systems which up to now had no basic analytical model to refer to. A possible example of such a system could be a cold-atom gas in a magneto-optical trap with a varying density, oscillating between a strongly trapping regime and a freer regime. 
+}
 
 
 
@@ -499,9 +507,19 @@ q(\kappa, \ell, \gamma) \approx
 In Fig. \ref{fig:fcs}, we provide a comparison between this analytical prediction and numerical simulations, showing a very good agreement. We also compute the $\mu \to 0$ limit of the FCS and the result is given in Eq.~\eqref{eq:free-q}.
 
 
+{\color{blue}
+\section{Numerical simulations}
 
-
-
+To sample configurations from the NESS of the $\beta$-RDBM we exploit the renewal structure and known random matrix results. From Eq. (\ref{eq:resetting-free-link}) we know that to sample a configuration in the steady state of a $\beta$-RDBM it suffices to samples a time $\tau$ from an exponential distribution with rate $r$ and subsequently sample a configuration of a $\beta$-DBM at time $\tau$. Using known random matrix theory results from Dumitriu and Edelman \cite{DE02} we know that a $\beta$-DBM configuration at time $\tau$ can be obtained by diagonalizing a tri-diagonal random matrix, with off-diagonal entries distributed as chi-square variables and parametrized by $\beta$ (with each entry scaled by a factor $\sigma(\tau)$ with $\sigma^2(\tau)$ given in Eq. (\ref{eq:def-sigma})). Hence to sample a configuration from the NESS of the $\beta$-RDBM process we perform the following algorithm
+\begin{enumerate}
+    \item Sample $\tau$ from an exponential distribution $p(\tau) = r e^{-r \tau}$ with rate $r$. 
+    \item Build a tri-diagonal matrix as per the prescription from Dumitriu and Edelman \cite{DE02}.
+    \item Rescale the matrix by $\sigma(\tau)$ with $\sigma^2(\tau)$ given in Eq. (\ref{eq:def-sigma}).
+    \item Diagonalize the matrix and obtain the eigenvalues which correspond to the particle positions of our $\beta$-RDBM configuration.
+    \item Compute any observable required.
+\end{enumerate}
+All of the code used to generate the simulated data as well as the post-processing code to create our plots are available at \cite{github}.
+}
 
 
 \section{Derivation of the results} \label{sec:model}
@@ -1027,19 +1045,6 @@ where the scaling function ${\cal F}_0(\tilde r)$ still has a rather complicated
 A plot of this scaling function is provided in Fig. \ref{Fig:variancemu0}.
 
 
-\section{Numerical simulations}
-
-To sample configurations from the NESS of the $\beta$-RDBM we exploit the renewal structure and known random matrix results. From Eq. (\ref{eq:resetting-free-link}) we know that to sample a configuration in the steady state of a $\beta$-RDBM it suffices to samples a time $\tau$ from an exponential distribution with rate $r$ and subsequently sample a configuration of a $\beta$-DBM at time $\tau$. Using known random matrix theory results from Dumitriu and Edelman \cite{DE02} we know that a $\beta$-DBM configuration at time $\tau$ can be obtained by diagonalizing a tri-diagonal random matrix, with off-diagonal entries distributed as chi-square variables and parametrized by $\beta$ (with each entry scaled by a factor $\sigma(\tau)$ with $\sigma^2(\tau)$ given in Eq. (\ref{eq:def-sigma})). Hence to sample a configuration from the NESS of the $\beta$-RDBM process we perform the following algorithm
-\begin{enumerate}
-    \item Sample $\tau$ from an exponential distribution $p(\tau) = r e^{-r \tau}$ with rate $r$. 
-    \item Build a tri-diagonal matrix as per the prescription from Dumitriu and Edelman \cite{DE02}.
-    \item Rescale the matrix by $\sigma(\tau)$ with $\sigma^2(\tau)$ given in Eq. (\ref{eq:def-sigma}).
-    \item Diagonalize the matrix and obtain the eigenvalues which correspond to the particle positions of our $\beta$-RDBM configuration.
-    \item Compute any observable required.
-\end{enumerate}
-All of the code used to generate the simulated data as well as the post-processing code to create our plots are available at \cite{github}.
-
-
 \section{Conclusion} \label{sec:conclusion}
 
 The $\beta$-DBM process refers to the stochastic evolution of a system of particles in a confined harmonic trap and with pairwise repulsive
@@ -1378,6 +1383,9 @@ G. Schehr, S. N. Majumdar, A. Comtet, J. Randon-Furling, Phys. Rev. Lett. {\bf 1
 
 \bibitem{AAV09} A. Y. Abul-Magd, G. Akemann, P. Vivo, J. Phys. A: Math. Theor. {\bf 42}, 175207 (2009).
 
+{\color{blue}\bibitem{github}
+https://github.com/MarcoBiroli/ResetDyson}
+
 \bibitem{T18}
 S. Torquato, Phys. Rep. {\bf 745}, 1 (2018).
 %Hyperuniform states of matter.
@@ -1386,9 +1394,6 @@ S. Torquato, Phys. Rep. {\bf 745}, 1 (2018).
 \bibitem{Gautie}
 T. Gauti{\'e}, P. Le Doussal, S. N. Majumdar, G. Schehr, J. Stat. Phys. {\bf 177}, 752 (2019).
 % Non-crossing Brownian paths and Dyson Brownian motion under a moving boundary. 
-
-\bibitem{github}
-https://github.com/MarcoBiroli/ResetDyson
 
 %XXXXXX
 
