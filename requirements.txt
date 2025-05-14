@@ -1,0 +1,9 @@
+numpy
+tqdm
+dppy
+scipy
+matplotlib
+scikit-rmt
+tracywidom
+mpmath
+
