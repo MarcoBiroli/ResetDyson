@@ -1,4 +1,4 @@
-# ResetDyson – _code & data for “Resetting Dyson Brownian Motion”_
+# ResetDyson – _code for “Resetting Dyson Brownian Motion”_
 
 [![arXiv](https://img.shields.io/badge/arXiv-2503.14733-B31B1B.svg)](https://arxiv.org/abs/2503.14733)
 ![Made with Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue)
