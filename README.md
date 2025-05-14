@@ -26,15 +26,6 @@ The repository lets you
 | `density.nb` | Mathematica notebook showing the symbolic steps of the Coulomb-gas saddle |
 | `.gitignore` | housekeeping (keeps outputs out of version control) |
 
-<details>
-<summary>Language mix (LOC-weighted)</summary>
-
-- Mathematica ≈40 %  
-- TeX ≈32 %  
-- Jupyter ≈13 %  
-- Python ≈ 8 %  
-- Gnuplot ≈ 6 %   :contentReference[oaicite:1]{index=1}
-</details>
 
 ---
 
