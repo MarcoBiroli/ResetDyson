@@ -28,6 +28,7 @@ The repository lets you
 
 ## Quick start
 
+Run the following to clone the repository and create the conda environment with the necessary packages to run the code.
 ```bash
 # clone & enter
 git clone https://github.com/MarcoBiroli/ResetDyson.git
@@ -37,4 +38,21 @@ cd ResetDyson
 # you may need to replace the conda path in create_env.sh with your own
 ./source/create_env.sh 
 ```
+
+All the code to generate the data from our paper is in the `code` folder which contains a Makefile exposing simple commands to run our simulations. For example, to re-create the data for the density in the NESS you can run
+
+```bash
+cd code
+
+make density S=10000 N=1000 G=0.5 b=0.5 B=auto
+```
+
+The different parameters are:
+ - `S` the number of samples
+ - `N` the number of particles
+ - `G` the dimensionless gamma value as explained in the paper
+ - `b` beta, Dyson's index
+ - `B` the number of bins to use when binning the data, either an integer number of auto.
+
+After having created the necessary data, you can re-obtain the plots from our paper by using the corresponding `.gnu` files in the `code/gnuplot` folder. 
 
