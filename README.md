@@ -5,7 +5,7 @@
 ![Mathematica 13+](https://img.shields.io/badge/Mathematica-13%2B-orange)
 
 **ResetDyson** collects the analytical calculations, symbolic notebooks and Monte-Carlo/ODE code that accompany the paper  
-> **M. Biroli, S. N. Majumdar & G. Schehr, “Resetting Dyson Brownian Motion” (2025)** :contentReference[oaicite:0]{index=0}  
+> **M. Biroli, S. N. Majumdar & G. Schehr, “Resetting Dyson Brownian Motion” (2025)** 
 
 The repository lets you
 
