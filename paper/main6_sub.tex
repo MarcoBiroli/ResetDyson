@@ -1027,6 +1027,17 @@ where the scaling function ${\cal F}_0(\tilde r)$ still has a rather complicated
 A plot of this scaling function is provided in Fig. \ref{Fig:variancemu0}.
 
 
+\section{Numerical simulations}
+
+To sample configurations from the NESS of the $\beta$-RDBM we exploit the renewal structure and known random matrix results. From Eq. (\ref{eq:resetting-free-link}) we know that to sample a configuration in the steady state of a $\beta$-RDBM it suffices to samples a time $\tau$ from an exponential distribution with rate $r$ and subsequently sample a configuration of a $\beta$-DBM at time $\tau$. Using known random matrix theory results from Dumitriu and Edelman \cite{DE02} we know that a $\beta$-DBM configuration at time $\tau$ can be obtained by diagonalizing a tri-diagonal random matrix, with off-diagonal entries distributed as chi-square variables and parametrized by $\beta$ (with each entry scaled by a factor $\sigma(\tau)$ with $\sigma^2(\tau)$ given in Eq. (\ref{eq:def-sigma})). Hence to sample a configuration from the NESS of the $\beta$-RDBM process we perform the following algorithm
+\begin{enumerate}
+    \item Sample $\tau$ from an exponential distribution $p(\tau) = r e^{-r \tau}$ with rate $r$. 
+    \item Build a tri-diagonal matrix as per the prescription from Dumitriu and Edelman \cite{DE02}.
+    \item Rescale the matrix by $\sigma(\tau)$ with $\sigma^2(\tau)$ given in Eq. (\ref{eq:def-sigma}).
+    \item Diagonalize the matrix and obtain the eigenvalues which correspond to the particle positions of our $\beta$-RDBM configuration.
+    \item Compute any observable required.
+\end{enumerate}
+All of the code used to generate the simulated data as well as the post-processing code to create our plots are available at \cite{github}.
 
 
 \section{Conclusion} \label{sec:conclusion}
@@ -1290,7 +1301,7 @@ S. Gupta, S. N. Majumdar, G. Schehr, Phys. Rev. Lett. {\bf 112}, 220601 (2014)
 
 \bibitem{DHP14}
 X. Durang, M. Henkel, H. Park, J. Phys. A: Math. Theor. {\bf 47}, 045002 (2014).
-%The statistical mechanics of the coagulationÐdiffusion process with a stochastic reset. 
+%The statistical mechanics of the coagulationï¿½diffusion process with a stochastic reset. 
 
 \bibitem{BKP19}
 U. Basu, A. Kundu, A. Pal, Phys. Rev. E {\bf 100}, 032136 (2019).
@@ -1375,6 +1386,9 @@ S. Torquato, Phys. Rep. {\bf 745}, 1 (2018).
 \bibitem{Gautie}
 T. Gauti{\'e}, P. Le Doussal, S. N. Majumdar, G. Schehr, J. Stat. Phys. {\bf 177}, 752 (2019).
 % Non-crossing Brownian paths and Dyson Brownian motion under a moving boundary. 
+
+\bibitem{github}
+https://github.com/MarcoBiroli/ResetDyson
 
 %XXXXXX
 
