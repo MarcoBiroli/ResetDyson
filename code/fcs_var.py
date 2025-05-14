@@ -2,7 +2,6 @@ import numpy as np
 import argparse 
 from tqdm import tqdm
 from sample_RMT import sample_eigvals_large_Gaussian
-import scipy
 
 def sample_dynamic_Gaussian(N  : int,
                             mu : float,

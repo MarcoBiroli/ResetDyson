@@ -1,7 +1,5 @@
 import numpy as np
 import argparse 
-from tqdm import tqdm
-from skrmt.ensemble.gaussian_ensemble import GaussianEnsemble
 from sample_RMT import sample_maxeigval_large_Gaussian
 
 def sample_dynamic_Gaussian(N  : int,
@@ -11,20 +9,13 @@ def sample_dynamic_Gaussian(N  : int,
                             beta : int, 
                             repeats : int):
     if mu != 0:
-        var = np.sqrt(D * (1 - np.exp(-2 * mu * t))/(mu)) #/ np.sqrt(2)
+        var = np.sqrt(D * (1 - np.exp(-2 * mu * t))/(mu)) 
     else:
         var = np.sqrt(2 * D * t)
 
     maxeigval = sample_maxeigval_large_Gaussian(N, beta, 1, repeats)
     maxeigval = maxeigval * var
     return maxeigval
-    #beta = 1
-    #var = np.sqrt(D * (1 - np.exp(-2 * mu * t))/(mu * beta)) / np.sqrt(2)
-    #X = GaussianEnsemble(beta=1, n=N, tridiagonal_form=True)
-    #return var, X
-    #X = var / 2 * np.random.normal(size=(N, N))
-    #X = X + np.transpose(X)
-    #return X
 
 def sample_reset_Gaussian(r  : float,
                      N  : int,
@@ -36,19 +27,11 @@ def sample_reset_Gaussian(r  : float,
     return sample_dynamic_Gaussian(N, mu, D, tau, beta, repeats)
 
 def sampling_loop(S, r, N, mu, D, beta, **kwargs):
-    #out = np.empty(shape = (S))
-
-    #for i in tqdm(range(S)):
-    #    (var, X) = sample_reset_GOE(r, N, mu, D)
-    #    eigvals = var * X.eigvals()
-    #    out[i] = max(eigvals)
 
     out = sample_reset_Gaussian(r, N, mu, D, beta, S)
 
-    #n23 = N**(2/3)
-    #xstar = -1.3926626448799095
     if mu != 0:
-        c = np.sqrt(N * D / (mu)) #* (2 * np.sqrt(2) * n23 + xstar) / (2 * n23)
+        c = np.sqrt(N * D / (mu)) 
         out = out / c
     else:
         c = np.sqrt(2 * N * D / (r))

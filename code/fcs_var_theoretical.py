@@ -1,7 +1,5 @@
 import numpy as np
 import scipy.integrate
-import scipy.special
-from TracyWidom import TracyWidom
 import scipy
 import argparse
 from mpmath import *

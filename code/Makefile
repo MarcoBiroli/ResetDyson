@@ -32,6 +32,8 @@ rebin_fcs:
 
 fcs_var:
 	python fcs_var.py -S $S -N $N -r 1 -mu $G -D 1 -beta $b -f "histograms/fcs_var/S$S.N$N.G$G.L$L.b$b.out"
+	python fcs_var_theoretical.py -g $G -f "histograms/fcs_var/th.G$G.out"
+	python fcs_var_theoretical_resetfree.py -f "histograms/fcs_var/th_r0.out"
 
 
 

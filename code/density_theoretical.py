@@ -1,9 +1,7 @@
 import numpy as np
 import scipy.special
-from TracyWidom import TracyWidom
 import scipy
 import argparse
-import matplotlib.pyplot as plt
 
 def th_f(z, gamma):
     return (1/np.pi * np.sqrt(2 - z**2) * np.pi**(1/2) / (2 ** (2 + 1/(2 * gamma)) * gamma )  \

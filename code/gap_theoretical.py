@@ -1,13 +1,11 @@
 import numpy as np
 import scipy.special
-from TracyWidom import TracyWidom
 import scipy
 import argparse
 from mpmath import *
 
 def delta_th_f(ztab, gamma):
     return [z * scipy.special.gamma(1 + 1/(2*gamma))/2 * meijerg([[], [1/(2*gamma)]], [[0, 0], []], z**2/4) for z in ztab]
-    #return ztab/4 * np.exp(-ztab**2/8) * scipy.special.kn(0, ztab**2/8)
 
 def th_f0(y):
     return y * scipy.special.k0(y)

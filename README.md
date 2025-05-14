@@ -19,13 +19,10 @@ The repository lets you
 
 | Path | What’s inside |
 |------|---------------|
-| `code/` | stand-alone Python scripts (no notebook overhead) that generate raw data & plots for the paper – see below |
+| `code/` | stand-alone Python scripts that generate raw data for the paper – see below |
 | `paper/` | complete LaTeX source of the article, ready for *arXiv/APS* compilation |
 | `tex_figures/` | the PDF/PGF figures included by `paper/main.tex` |
-| `density.py` | minimal reference implementation of the large-\(N\) density in the NESS |
-| `density.nb` | Mathematica notebook showing the symbolic steps of the Coulomb-gas saddle |
 | `.gitignore` | housekeeping (keeps outputs out of version control) |
-
 
 ---
 
@@ -36,6 +33,8 @@ The repository lets you
 git clone https://github.com/MarcoBiroli/ResetDyson.git
 cd ResetDyson
 
-# (optional) create an isolated environment
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt     # see list below
+# create conda environment
+# you may need to replace the conda path in create_env.sh with your own
+./source/create_env.sh 
+```
+

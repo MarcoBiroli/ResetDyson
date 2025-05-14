@@ -1,6 +1,4 @@
 import numpy as np
-from TracyWidom import TracyWidom
-import scipy
 import argparse
 from mpmath import *
 
@@ -8,9 +6,6 @@ def free_mean(l, u):
     adim = l/u
     if np.any(adim < 0) or np.any(adim > np.sqrt(2)):
         raise RuntimeError('Out of range.')
-    return 1/np.pi * adim * np.sqrt(2 - adim**2) + 2 /np.pi * np.arctan(adim/np.sqrt(2 - adim**2))
-    return 1/np.pi * l / u * np.sqrt(2 - l**2/u**2) + 2 /np.pi * np.arctan((l/u)/(2 - l**2/u**2)**(1/2))
-    adim = l/np.sqrt(u)
     return 1/np.pi * adim * np.sqrt(2 - adim**2) + 2 /np.pi * np.arctan(adim/np.sqrt(2 - adim**2))
 
 def free_mean_v(l, v, gamma):
@@ -29,7 +24,6 @@ def rec_v(low, high, target, l, gamma, eps = 1e-6):
         raise RuntimeError('Recursion Error.')
 
 def vstar(z, l, gamma):
-    # v \in [0, (1 - l**2/2)**(1/(2 * gamma))]
     low = 0
     high = (1 - l**2/2)**(1/(2 * gamma))
     return rec_v(low, high, z, l, gamma)
@@ -40,7 +34,6 @@ def delta_th_f(ztab, l, gamma):
         cur = 0
         if z > free_mean(l, 1) and z < free_mean(l, l/np.sqrt(2) + 1e-9):
             v = vstar(z, l, gamma)
-            #breakpoint()
             u = 1 - v**(2 * gamma)
             cur += np.pi/(2 * gamma * l) * v**(1-2*gamma) * u**2 / np.sqrt(2 * u - l**2 )
         if z == 1:
@@ -83,7 +76,6 @@ def rec_logv_free(low, high, target, y, eps = 1e-6):
         raise RuntimeError('Recursion Error.')
 
 def vstar_free(z, y):
-    # v \in [0, (1 - l**2/2)**(1/(2 * gamma))]
     low = 0
     high = np.exp(-y/4)
     loglow = y/4

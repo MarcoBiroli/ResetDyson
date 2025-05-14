@@ -1,9 +1,7 @@
 import numpy as np
 import argparse 
 import scipy.special
-from tqdm import tqdm
 from sample_RMT import sample_gap_large_Gaussian, sample_gap_small_Gaussian
-from skrmt.ensemble import GaussianEnsemble
 import scipy
 
 def sample_dynamic_Gaussian_unormalized(N  : int,
@@ -31,22 +29,6 @@ def sample_dynamic_Gaussian_unormalized(N  : int,
         gap = sample_gap_small_Gaussian(N, beta, 1, repeats)
         gap = gap * var
         return gap
-        '''
-        gaps = np.empty(shape = (repeats*(N-1)))
-        if mu != 0:
-            varlist = np.sqrt(D * (1 - np.exp(-2 * mu * t))/(mu * beta)) 
-        else:
-            varlist = np.sqrt(2 * D * t / beta)
-
-        for i, var in tqdm(enumerate(varlist), total = len(varlist)):
-            #X = var/2 * np.random.normal(size=(N, N))
-            #X = X + np.transpose(X)
-            X = var * GaussianEnsemble(beta=beta, n=N).matrix
-            #gap = sample_gap_small_Gaussian(N, beta, 1, repeats)
-            diffs = np.diff(np.sort(np.linalg.eigvals(X)))
-            gaps[i*(N-1):(i+1)*(N-1)] = diffs
-        return gaps
-        '''
 
 def sample_reset_Gaussian_unormalized(r  : float,
                      N  : int,
@@ -82,22 +64,6 @@ def sample_dynamic_Gaussian(N  : int,
         gap = sample_gap_small_Gaussian(N, beta, 1, repeats)
         gap = gap * var
         return gap / np.mean(gap)
-        '''
-        gaps = np.empty(shape = (repeats*(N-1)))
-        if mu != 0:
-            varlist = np.sqrt(D * (1 - np.exp(-2 * mu * t))/(mu * beta)) 
-        else:
-            varlist = np.sqrt(2 * D * t / beta)
-
-        for i, var in tqdm(enumerate(varlist), total = len(varlist)):
-            #X = var/2 * np.random.normal(size=(N, N))
-            #X = X + np.transpose(X)
-            X = var * GaussianEnsemble(beta=beta, n=N).matrix
-            #gap = sample_gap_small_Gaussian(N, beta, 1, repeats)
-            diffs = np.diff(np.sort(np.linalg.eigvals(X)))
-            gaps[i*(N-1):(i+1)*(N-1)] = diffs
-        return gaps
-        '''
 
 def sample_reset_Gaussian(r  : float,
                      N  : int,
@@ -116,21 +82,13 @@ def sampling_loop(S, r, N, mu, D, beta, **kwargs):
 
         if mu != 0:
             gamma = mu / r
-            #c = np.pi / (4 * gamma) * scipy.special.gamma(1/(2*gamma)) / scipy.special.gamma(1/2*(3 + 1/gamma))
             c = np.sqrt(np.pi) * scipy.special.gamma(1 + beta/2) * scipy.special.gamma(1 + 1/(2*gamma)) / ( scipy.special.gamma((1 + beta)/2) * scipy.special.gamma( 3/2 + 1/(2*gamma) ) ) 
         else:
             c = np.pi / 2
 
         out = out * c
     else:
-        raise RuntimeError("Outdated code, now nto supported")
-        out = sample_dynamic_Gaussian(N, mu, D, 100000 * np.ones(shape =(S,)), beta, S)
-
-        out = out / np.mean(out)
-
-        c = np.sqrt(np.pi)
-
-        out = out * c
+        raise RuntimeError("Outdated code, now not supported")
 
     return out
 

@@ -1,8 +1,5 @@
 import numpy as np
-from TracyWidom import TracyWidom
-import scipy
 import argparse
-import matplotlib.pyplot as plt
 
 def th_f(ztab, gamma):
     return ztab * (1 - ztab**2 / 2)**(1/(2 * gamma) - 1) / (2 * gamma)

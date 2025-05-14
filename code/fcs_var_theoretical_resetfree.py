@@ -1,7 +1,4 @@
 import numpy as np
-import scipy.integrate
-from TracyWidom import TracyWidom
-import scipy
 import argparse
 from mpmath import *
 from tqdm import tqdm

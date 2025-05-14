@@ -38,8 +38,6 @@ def sample_gap_large_Gaussian(n, beta, sigma, repeats):
         eigvals = scipy.linalg.eigh_tridiagonal(diag, upper_diag, eigvals_only = True)
         eigvals = np.sqrt(2 * n) * eigvals
         eigvals.sort()
-        #gaps = np.triu(np.abs(eigvals - eigvals[:, None]))
-        #gaps = gaps[gaps != 0]
         gaps = np.diff(eigvals)
         res[i*ndiff:(i+1)*ndiff] = gaps
 
@@ -48,26 +46,6 @@ def sample_gap_large_Gaussian(n, beta, sigma, repeats):
     return res
 
 def sample_gap_small_Gaussian(n, beta, sigma, repeats):
-    '''
-    #upper_diag = np.sqrt(np.arange(n-1, n-cutoff, -1))/2/np.sqrt(n)
-    upper_diag = np.sqrt( np.random.chisquare(df = np.arange(n-1, 0, -1) * beta) / (2*n))
-
-    ndiff = n-1
-
-    res = np.empty((repeats * ndiff,))
-
-    for i in tqdm(range(repeats), leave = False):
-        diag = np.random.normal(size=(n)) / np.sqrt(n * beta)
-        eigvals = scipy.linalg.eigh_tridiagonal(diag, upper_diag, eigvals_only = True)
-        eigvals = np.sqrt(2 * n) * eigvals
-        eigvals.sort()
-        #gaps = np.triu(np.abs(eigvals - eigvals[:, None]))
-        #gaps = gaps[gaps != 0]
-        gaps = np.diff(eigvals)
-        res[i*ndiff:(i+1)*ndiff] = gaps
-
-    res = sigma * res
-    '''
     ndiff = n-1
     res = np.empty((repeats * ndiff,))
 

@@ -12,10 +12,7 @@ def sample_dynamic_GOE(N  : int,
         var = np.sqrt(D * (1 - np.exp(-2 * mu * t))/(mu))
     else:
         var = np.sqrt(2 * D * t)
-    #X = GaussianEnsemble(beta=1, n=N, tridiagonal_form=True)
     eigvals = sample_eigvals_large_Gaussian(N, beta, 1, 1)
-    #X = var/2 * np.random.normal(size=(N, N))
-    #X = X + np.transpose(X)
     return var, eigvals
 
 def sample_reset_GOE(r  : float,
