@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        domain=0:1, % Modify this range based on (1 - l^2/2)^(1/(2 gamma))
+        samples=100,
+        xlabel={$v$},
+        ylabel={Function Value},
+        legend pos=north west
+    ]
+    \addplot[
+        thick,
+        blue
+    ]
+    gnuplot[
+        raw gnuplot,
+        id=myplot
+    ]{
+        l = 1; % Set l value
+        gamma = 1; % Set gamma value
+        v_max = (1 - l^2/2)^(1/(2*gamma));
+        
+        f(v) = (1/pi) * (l / sqrt(1 - v^2*gamma)) * sqrt(2 - (l^2 / (1 - v^2*gamma)))
+               + (2/pi) * atan( (l / sqrt(1 - v^2*gamma)) / sqrt(2 - (l^2 / (1 - v^2*gamma))) );
+
+        set xrange [0:v_max];
+        plot f(x);
+    };
+    \end{axis}
+\end{tikzpicture}
+
+\end{document}
