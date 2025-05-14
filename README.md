@@ -10,7 +10,7 @@
 The repository lets you
 
 * reproduce every figure and numerical check in the manuscript;  
-* experiment with the large-\(N\) density, edge statistics and gap/FCN distributions of the *β-RDBM*;  
+* experiment with the large-\(N\) density, edge statistics and gap/FCS distributions of the *β-RDBM*;  
 * explore the Mathematica derivations that lead to the exact stationary joint law.
 
 ---
